@@ -8,4 +8,11 @@ bootstrap
  Guard:
   Pour la gestion des authtification
    ng g guard authguard //pas besoin d'un package supplementaire
+Creation d'un service pour le Routing
+  ng generate module app-routing --flat --module=app
+    --flat puts the file in src/app instead of its own folder.  // mais je ne vais use flat car je range le mien dans routes/   il va donc cree un dossier qui portera le nom a generer
+    --module=app tells the CLI to register it in the imports array of the AppModule.
 
+glyphicons
+    permet d'avoir des incone
+    npm install --save glyphicons

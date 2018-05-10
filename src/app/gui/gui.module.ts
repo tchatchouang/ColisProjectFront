@@ -19,6 +19,7 @@ import {TrajetPublierComponent} from './trajet-publier/trajet-publier.component'
 import {AvisRecuComponent} from './avis-recu/avis-recu.component';
 import {TeamComponent} from './team/team.component';
 import {NgModule} from '@angular/core';
+import {LoginComponent} from './login/login.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {NgModule} from '@angular/core';
     TeamComponent,
     TrajetDemanderComponent,
     TrajetDetailsComponent,
-    TrajetPublierComponent],
+    TrajetPublierComponent,
+    LoginComponent],
   exports: [GuiComponent],
 })
 export class GuiModule {
