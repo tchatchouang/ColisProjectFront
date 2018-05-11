@@ -22,10 +22,13 @@ import {NgModule} from '@angular/core';
 import {LoginComponent} from './login/login.component';
 import {CommonModule} from '@angular/common';
 import {ServiceModule} from '../services/service.module';
+import {FormsModule} from '@angular/forms';
+import {RoutesModule} from '../routes/routes.module';
+
 
 
 @NgModule({
-  imports: [CommonModule, ServiceModule],
+  imports: [CommonModule, ServiceModule, FormsModule, RoutesModule],
   declarations: [
     GuiComponent,
     AdvertisementComponent,
