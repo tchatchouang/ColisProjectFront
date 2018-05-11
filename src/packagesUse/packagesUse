@@ -3,6 +3,7 @@ Redux: ce package me permettra de gere
   npm install redux @angular-redux/store --save // pour l'installation de redux
   npm install --save-dev redux-devtools
   npm install --save redux-observable // pour utiliser Epic
+  npm i --save redux-logger // pour que les log de redux s'affiche dans la consol
 bootstrap
   npm install bootstrap@4.0.0-beta.2
  Guard:
@@ -16,3 +17,7 @@ Creation d'un service pour le Routing
 glyphicons
     permet d'avoir des incone
     npm install --save glyphicons
+rxjs
+    Pour l'utilisation des fonction comme  Filter, Map, etc
+    npm install rxjs --save
+

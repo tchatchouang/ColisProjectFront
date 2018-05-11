@@ -1,14 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
 import {Person} from '../../models/person';
+import {Observable} from 'rxjs/Observable';
+import {HttpParams} from '@angular/common/http';
+import {HttpService} from '../http/http.service';
 
 @Injectable()
 export class LoginService {
 
   private isUserLoggerIn;
   private userName;
+  private baseUrl;
 
-  constructor(public http: Http) {
+  constructor() {
+    this.baseUrl = 'http://localhost:8080/';
   }
 
   saveDonneur(person: Person) {
@@ -23,4 +27,12 @@ export class LoginService {
   getUserLoggerIn() {
     return this.isUserLoggerIn;
   }
+
+  /*getPersonnesLoginPass(loginPersonne: string, passwordPersonne: string): Observable<Person> {
+    return this.http.get(`${this.baseUrl}/personnes/checkLoginPass?loginPersonne`, {
+      params: new HttpParams()
+        .set('loginPersonne', loginPersonne)
+        .set('passwordPersonne', passwordPersonne),
+    });
+  }*/
 }

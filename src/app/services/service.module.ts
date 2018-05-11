@@ -1,16 +1,18 @@
 import {CommonModule} from '@angular/common';
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
-import {HttpModule} from '@angular/http';
 import {LoginService} from './logins/login.service';
+import {NgReduxFormModule} from '@angular-redux/form';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     BrowserModule,
-    HttpModule,
+    ReactiveFormsModule,
+    NgReduxFormModule,
   ],
   declarations: [],
   providers: [
@@ -18,7 +20,11 @@ import {LoginService} from './logins/login.service';
   ],
 })
 export class ServiceModule {
-  constructor() {
+  constructor(@Optional() @SkipSelf() parentModule: ServiceModule) {
+    if (parentModule) {
+      throw new Error(
+        'ServiceModule is already loaded. Import it in the AppModule only');
+    }
   }
 
   static forRoot(): ModuleWithProviders {

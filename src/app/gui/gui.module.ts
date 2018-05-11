@@ -20,10 +20,12 @@ import {AvisRecuComponent} from './avis-recu/avis-recu.component';
 import {TeamComponent} from './team/team.component';
 import {NgModule} from '@angular/core';
 import {LoginComponent} from './login/login.component';
+import {CommonModule} from '@angular/common';
+import {ServiceModule} from '../services/service.module';
 
 
 @NgModule({
-  imports: [],
+  imports: [CommonModule, ServiceModule],
   declarations: [
     GuiComponent,
     AdvertisementComponent,
