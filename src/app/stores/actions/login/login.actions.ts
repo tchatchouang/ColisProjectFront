@@ -5,6 +5,8 @@ import {IAppState} from '../../reducers/reducers';
 import {LoginService} from '../../../services/logins/login.service';
 import {ErrorMessage} from '../../../interfaces/error-message/error-message';
 import {ILogin} from '../../reducers/login/login.reducers';
+import {Subscription} from 'rxjs/Subscription';
+import {PushRoutesService} from '../../../services/push-route/push-routes.service';
 
 export enum LoginActionsTypes {
   LOGIN_FETCH_START = 'LOGIN_FETCH_START',
@@ -14,6 +16,12 @@ export enum LoginActionsTypes {
 
 
 export const LOGIN_FETCH_START = 'LOGIN_FETCH_START';
+export const err: ErrorMessage = {
+  code: 500,
+  message: 'erreur de connexion',
+  description: ' verifier vos login ou password',
+  infoUrl: 'url',
+};
 
 @Injectable()
 export class LoginActions {
@@ -22,35 +30,50 @@ export class LoginActions {
     loading: false,
     lastLogin: null,
     error: false,
+    messegeError: '',
+    isLogin: false,
   };
 
-  constructor(private ngRedux: NgRedux<IAppState>, private loginService: LoginService) {
+  constructor(private ngRedux: NgRedux<IAppState>, private loginService: LoginService, private pushRoutesService: PushRoutesService) {
   }
 
-  login(login: string, pass: string) {
+  login(login: string, pass: string): Subscription {
 
-    this.ngRedux.dispatch(this.loginStart());
-
+    return this.loginService.getPersonnesLoginPass(login, pass)
+      .subscribe(
+        response => this.ngRedux.dispatch(this.loginSuccess(response))
+      );
   }
 
-  private loginStart() {
-    return {
-      type: LoginActionsTypes.LOGIN_FETCH_START,
-    };
+  public loginStart() {
+    return this.ngRedux.dispatch({type: LoginActionsTypes.LOGIN_FETCH_START});
   }
 
 
   private loginSuccess(person: Person) {
-    return {
-      type: LoginActionsTypes.LOGIN_FETCH_SUCCESS,
-      payload: person,
-    };
+    if (person == null) {
+      this.pushRoutesService.pushRoute('sign-in');
+      return {
+        type: this.ngRedux.dispatch(this.loginFailure(err)),
+        payload: null,
+        error: true,
+      };
+    } else {
+      this.loginService.setUserLoggerIn();
+      this.pushRoutesService.pushRoute('dashboard/general');
+      return {
+        type: LoginActionsTypes.LOGIN_FETCH_SUCCESS,
+        payload: person,
+        error: false,
+      };
+    }
+
   }
 
-  private loginFailure(err: ErrorMessage) {
+  private loginFailure(errr: ErrorMessage) {
     return {
       type: LoginActionsTypes.LOGIN_FETCH_FAILURE,
-      payload: err,
+      payload: errr,
       error: true,
     };
   }

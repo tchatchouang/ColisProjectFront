@@ -5,6 +5,10 @@ import {LoginActions} from './actions/login/login.actions';
 import {NgReduxFormModule} from '@angular-redux/form';
 import {IAppState, rootReducer} from './reducers/reducers';
 import {BrowserModule} from '@angular/platform-browser';
+import {SignOutActions} from './actions/signOut/sign-out-actions';
+import {createEpicMiddleware} from 'redux-observable';
+import {LoginEpics} from './epics/login/login-epics';
+import {SignOutEpics} from './epics/signOut/sign-out-epics';
 
 @NgModule({
   imports: [
@@ -14,16 +18,21 @@ import {BrowserModule} from '@angular/platform-browser';
   ],
   providers: [
     LoginActions,
+    SignOutActions,
+    LoginEpics,
+    SignOutEpics
   ],
 })
 export class StoreModule {
-  constructor(public ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension) {
+  constructor(public ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension, private loginEpic: LoginEpics, private  signOutEpics: SignOutEpics) {
 
     const storeEnhancers = devTools.isEnabled() ?
       [devTools.enhancer()] :
       [];
     const middlewares = [
       createLogger(),
+      //createEpicMiddleware(this.signOutEpics.fetchSignjOut),
+
     ];
 
     this.ngRedux.configureStore(rootReducer, {}, middlewares, storeEnhancers);

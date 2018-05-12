@@ -16,7 +16,7 @@ import {AvisComponent} from '../gui/avis/avis.component';
 import {AvisRecuComponent} from '../gui/avis-recu/avis-recu.component';
 import {ProfilComponent} from '../gui/profil/profil.component';
 import {CommonModule} from '@angular/common';
-
+import {SignOutComponent} from '../gui/sign-out/sign-out.component';
 
 const appRoutes: Routes = [
   {
@@ -24,6 +24,9 @@ const appRoutes: Routes = [
   },
   {
     path: 'sign-up', component: SingUpComponent
+  },
+  {
+    path: 'sign-out', component: SignOutComponent
   },
   {
     path: 'home', component: HomePageComponent,

@@ -24,6 +24,7 @@ import {CommonModule} from '@angular/common';
 import {ServiceModule} from '../services/service.module';
 import {FormsModule} from '@angular/forms';
 import {RoutesModule} from '../routes/routes.module';
+import {SignOutComponent} from './sign-out/sign-out.component';
 
 
 
@@ -50,7 +51,8 @@ import {RoutesModule} from '../routes/routes.module';
     TrajetDemanderComponent,
     TrajetDetailsComponent,
     TrajetPublierComponent,
-    LoginComponent],
+    LoginComponent,
+    SignOutComponent],
   exports: [GuiComponent],
 })
 export class GuiModule {

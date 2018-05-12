@@ -8,6 +8,8 @@ export interface ILogin {
   loading: boolean;
   lastLogin: Date;
   error: boolean;
+  messegeError: string;
+  isLogin: boolean;
 }
 
 export const INITIAL_STATE: ILogin = {
@@ -15,6 +17,8 @@ export const INITIAL_STATE: ILogin = {
   loading: false,
   lastLogin: null,
   error: false,
+  messegeError: '',
+  isLogin: false,
 };
 
 export const loginReducer: Reducer<ILogin> =
@@ -26,6 +30,8 @@ export const loginReducer: Reducer<ILogin> =
           loginResults: null,
           loading: true,
           error: false,
+          messegeError: '',
+          isLogin: false,
         };
       case actionsTypes.login.LOGIN_FETCH_SUCCESS:
 
@@ -34,6 +40,7 @@ export const loginReducer: Reducer<ILogin> =
           loginResults: <Person>action.payload,
           loading: false,
           lastLogin: new Date,
+          isLogin: true,
         };
         return res;
       case actionsTypes.login.LOGIN_FETCH_FAILURE:
@@ -43,6 +50,7 @@ export const loginReducer: Reducer<ILogin> =
           loading: false,
           lastLogin: null,
           error: true,
+          messegeError: 'Erreur de connexion',
         };
     }
     return lastState;

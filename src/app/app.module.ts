@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {GuiModule} from './gui/gui.module';
 import {ServiceModule} from './services/service.module';
 import {StoreModule} from './stores/store.module';
+import {AuthguardGuard} from './authguard.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +16,7 @@ import {StoreModule} from './stores/store.module';
     ServiceModule.forRoot(),
     StoreModule,
   ],
-  providers: [],
+  providers: [AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -27,6 +27,9 @@
                       <input type="submit" name="login-submit" id="login-submit" tabindex="4"
                              class="form-control btn btn-login" value="Log In">
                     </div>
+                    <div *ngIf="error$ | async" class="col-sm-6">
+                      <span class="alert-danger"> {{messegeError$  |  async }}  </span>
+                    </div>
                   </div>
                 </div>
               </form>

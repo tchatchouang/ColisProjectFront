@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="navbar-header">
-    <a class="navbar-brand" href="#"><img src="http://d2r8jqmejizzox.cloudfront.net/361456-853098-65x38-logofinal.png"></a>
+    <a class="navbar-brand" routerLink="/"><img
+      src="http://d2r8jqmejizzox.cloudfront.net/361456-853098-65x38-logofinal.png"></a>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -8,16 +9,19 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/sign-in" routerLinkActive="active current" href="#">Sign In <span
+        <li class="nav-item" *ngIf="(isLogin$ | async) === false ">
+          <a class="nav-link" routerLink="/sign-in" routerLinkActive="active current" href="#"><span
+            class="text-primary">Sign In</span> <span
             class="caret"></span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/sign-up" routerLinkActive="active current" href="#">Sign Up <span
+        <li class="nav-item" *ngIf="(isLogin$ | async) === false ">
+          <a class="nav-link" routerLink="/sign-up" routerLinkActive="active current" href="#"><span
+            class="text-primary"> Sign Up</span> <span
             class="caret"></span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active current" href="#">Get Out<span
+        <li class="nav-item" *ngIf="(isLogin$ | async) === true ">
+          <a class="nav-link" routerLink="sign-out" routerLinkActive="active current" href="#"> <span
+            class="text-primary"> Sign Out</span> <span
             class="caret"></span></a>
         </li>
       </ul>

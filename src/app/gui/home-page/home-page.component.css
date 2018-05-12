@@ -1,6 +1,6 @@
 .blok1 {
   height: 100%;
-  background-image: url(assets/img/9.jpg);
+  background-image: url(../../../assets/img/9.jpg);
   background-position: center center;
   background-size: cover;
 }
@@ -38,7 +38,7 @@ body {
 
 #home, #contact {
   padding: 80px 25px;
-  background: url('assets/img/4.jpg');
+  background: url('../../../assets/img/4.jpg');
   background-position: 50% 50%;
   background-position-x: 50%;
   background-position-y: 50%;
@@ -166,7 +166,7 @@ h1.title {
 
   #home, #contact {
     padding: 80px 25px;
-    background: url('assets/img/9.jpg');
+    background: url('../../../assets/img/9.jpg');
     background-position: 60% 50%;
     background-position-x: 60%;
     background-position-y: 50%;

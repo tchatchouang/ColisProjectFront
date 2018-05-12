@@ -4,6 +4,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {LoginService} from './logins/login.service';
 import {NgReduxFormModule} from '@angular-redux/form';
+import {HttpClientModule} from '@angular/common/http';
+import {PushRoutesService} from './push-route/push-routes.service';
+import {SignOutService} from './singOut/sign-out-service';
 
 
 @NgModule({
@@ -13,10 +16,13 @@ import {NgReduxFormModule} from '@angular-redux/form';
     BrowserModule,
     ReactiveFormsModule,
     NgReduxFormModule,
+    HttpClientModule,
   ],
   declarations: [],
   providers: [
     LoginService,
+    PushRoutesService,
+    SignOutService,
   ],
 })
 export class ServiceModule {
