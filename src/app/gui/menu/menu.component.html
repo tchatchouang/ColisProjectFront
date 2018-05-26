@@ -1,33 +1,136 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation" style="margin-bottom: 0">
   <div class="navbar-header">
-    <a class="navbar-brand" routerLink="/"><img
-      src="http://d2r8jqmejizzox.cloudfront.net/361456-853098-65x38-logofinal.png"></a>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <img src="http://d2r8jqmejizzox.cloudfront.net/361456-853098-65x38-logofinal.png">
+    <a class="navbar-brand" routerLink="/"></a>
   </div>
+  <!-- /.navbar-header -->
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item" *ngIf="(isLogin$ | async) === false ">
-          <a class="nav-link" routerLink="/sign-in" routerLinkActive="active current" href="#"><span
-            class="text-primary">Sign In</span> <span
-            class="caret"></span></a>
+  <ul class="nav navbar-top-links navbar-right">
+
+    <li class="divider"></li>
+    <li *ngIf="(isLogin$ | async) === false ">
+      <a href="#" routerLink="/sign-in" routerLinkActive="active current">
+        <span class="text-primary"> Sign In</span>
+      </a>
+    </li>
+
+    <li class="divider"></li>
+
+    <li *ngIf="(isLogin$ | async) === false ">
+      <a href="#" routerLink="/sign-up" routerLinkActive="active current">
+        <span class="text-primary"> Sign Up</span>
+      </a>
+    </li>
+
+    <li class="divider"></li>
+    <li *ngIf="(isLogin$ | async) === true ">
+      <a href="#" routerLink="/dashboard/general" routerLinkActive="active current">
+        <span class="text-primary">
+          <img class="img-circle img-responsive" height="40" width="40" alt="User Avatar"
+               src="{{(loginResults$ | async).photoPersonne}}">
+          {{(loginResults$ | async).prenomPersonn}} {{(loginResults$ | async).nomPersonne }}
+        </span>
+      </a>
+    </li>
+
+    <li class="divider"></li>
+
+    <li *ngIf="(isLogin$ | async) === true ">
+      <a href="#" routerLink="/" routerLinkActive="active current">
+        <span class="text-primary"> Home</span>
+      </a>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="divider"></li>
+    <li class="dropdown" *ngIf="(isLogin$ | async) === true ">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-messages">
+        <li>
+          <a href="#">
+            <div>
+              <strong>John Smith</strong>
+              <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+            </div>
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+          </a>
         </li>
-        <li class="nav-item" *ngIf="(isLogin$ | async) === false ">
-          <a class="nav-link" routerLink="/sign-up" routerLinkActive="active current" href="#"><span
-            class="text-primary"> Sign Up</span> <span
-            class="caret"></span></a>
-        </li>
-        <li class="nav-item" *ngIf="(isLogin$ | async) === true ">
-          <a class="nav-link" routerLink="sign-out" routerLinkActive="active current" href="#"> <span
-            class="text-primary"> Sign Out</span> <span
-            class="caret"></span></a>
+        <li class="divider"></li>
+        <li>
+          <a class="text-center" href="#">
+            <strong>Read All Messages</strong>
+            <i class="fa fa-angle-right"></i>
+          </a>
         </li>
       </ul>
-    </form>
-  </div>
+      <!-- /.dropdown-messages -->
+    </li>
+
+    <!-- /.dropdown -->
+    <li class="dropdown" *ngIf="(isLogin$ | async) === true ">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-alerts">
+        <li>
+          <a href="#">
+            <div>
+              <i class="fa fa-comment fa-fw"></i> New Comment
+              <span class="pull-right text-muted small">4 minutes ago</span>
+            </div>
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="#">
+            <div>
+              <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+              <span class="pull-right text-muted small">12 minutes ago</span>
+            </div>
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="#">
+            <div>
+              <i class="fa fa-envelope fa-fw"></i> Message Sent
+              <span class="pull-right text-muted small">4 minutes ago</span>
+            </div>
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a class="text-center" href="#">
+            <strong>See All Alerts</strong>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+    <li *ngIf="(isLogin$ | async) === true ">
+      <a href="#" routerLink="/sign-out" routerLinkActive="active current">
+        <span class="text-primary"> Sign Out</span>
+      </a>
+    </li>
+
+  </ul>
+
 </nav>
+
 
 
 

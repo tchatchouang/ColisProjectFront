@@ -7,6 +7,9 @@ import {NgReduxFormModule} from '@angular-redux/form';
 import {HttpClientModule} from '@angular/common/http';
 import {PushRoutesService} from './push-route/push-routes.service';
 import {SignOutService} from './singOut/sign-out-service';
+import {SignUpServices} from './signUp/sign-up-services';
+import {TrajetServices} from './Trajets/trajets-services';
+import {ProposerTrajetServices} from './proposerTrajet/proposer-trajet-services';
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import {SignOutService} from './singOut/sign-out-service';
     LoginService,
     PushRoutesService,
     SignOutService,
+    SignUpServices,
+    TrajetServices,
+    ProposerTrajetServices,
   ],
 })
 export class ServiceModule {

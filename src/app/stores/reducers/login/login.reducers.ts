@@ -34,15 +34,13 @@ export const loginReducer: Reducer<ILogin> =
           isLogin: false,
         };
       case actionsTypes.login.LOGIN_FETCH_SUCCESS:
-
-        const res = {
+        return {
           ...lastState,
           loginResults: <Person>action.payload,
           loading: false,
           lastLogin: new Date,
           isLogin: true,
         };
-        return res;
       case actionsTypes.login.LOGIN_FETCH_FAILURE:
         return {
           ...lastState,

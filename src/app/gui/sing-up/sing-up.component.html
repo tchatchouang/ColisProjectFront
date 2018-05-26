@@ -1,3 +1,189 @@
-<p>
-  sing-up works!
-</p>
+<div class="container-fluid page-view">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well-block">
+        <div class="well-title">
+          <h2>Enregistrement</h2>
+        </div>
+        <form #f="ngForm" [formGroup]="form" (ngSubmit)="onSavePersone()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Nom</label>
+                <input class="form-control input-md"
+                       type="text"
+                       name="nomPersonne"
+                       placeholder="Nom"
+                       formControlName="nomPersonne"
+                       required minlength="4">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Prenom</label>
+                <input class="form-control input-md"
+                       type="text"
+                       name="prenomPersonn"
+                       placeholder="Prenom"
+                       formControlName="prenomPersonn"
+                       required minlength="4">
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Email</label>
+                <input class="form-control input-md"
+                       type="text"
+                       name="emailPersonne"
+                       placeholder="Email"
+                       formControlName="emailPersonne"
+                       required>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Adresse</label>
+                <input class="form-control input-md"
+                       type="text"
+                       name="adresseCompletePersonne"
+                       placeholder="Adresse"
+                       formControlName="adresseCompletePersonne"
+                       required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Date de Naissance</label>
+                <input class="form-control input-md"
+                       type="date"
+                       name="dateNaissancePersonne"
+                       placeholder="Date Naissence"
+                       formControlName="dateNaissancePersonne"
+                       require>
+              </div>
+            </div>
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Numéro de téléphone</label>
+                <input class="form-control input-md"
+                       type="text"
+                       name="numeroTelephonePersonne"
+                       placeholder="Numéro Téléphone"
+                       formControlName="numeroTelephonePersonne"
+                       required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Prefessioin</label>
+                <input class="form-control input-md"
+                       type="text"
+                       name="statusPersonne"
+                       placeholder="Profession"
+                       formControlName="statusPersonne"
+                       required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Pays</label>
+                <input type="text"
+                       placeholder="Search for Location"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       spellcheck="off"
+                       class="form-control"
+                       #paysPersonne
+                       formControlName="paysPersonne"
+                       required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">identifiant</label>
+                <input class="form-control input-md"
+                       type="text"
+                       name="loginPersonne"
+                       placeholder="Login"
+                       formControlName="loginPersonne"
+                       required>
+              </div>
+            </div>
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Mot de passe</label>
+                <input class="form-control input-md"
+                       type="password"
+                       name="passwordPersonne"
+                       placeholder="Password"
+                       formControlName="passwordPersonne"
+                       required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="custom-file">
+                <input id="upload"
+                       type="file"
+                       (change)="imageChange($event)"
+                       required/>
+                <span class="custom-file-control"></span>
+              </label>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!f.valid">Valider
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="well-block">
+        <div class="well-title">
+        </div>
+        <div class="feature-block">
+          <div class="feature feature-blurb-text">
+            <h4 class="feature-title">24/7 Hours Available</h4>
+            <div class="feature-content">
+              <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in
+                magnestibulum.</p>
+            </div>
+          </div>
+          <div class="feature feature-blurb-text">
+            <h4 class="feature-title">Experienced Staff Available</h4>
+            <div class="feature-content">
+              <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
+            </div>
+          </div>
+          <div class="feature feature-blurb-text">
+            <h4 class="feature-title">Low Price & Fees</h4>
+            <div class="feature-content">
+              <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum
+                nulla suscipit in.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

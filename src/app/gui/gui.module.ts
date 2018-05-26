@@ -22,14 +22,23 @@ import {NgModule} from '@angular/core';
 import {LoginComponent} from './login/login.component';
 import {CommonModule} from '@angular/common';
 import {ServiceModule} from '../services/service.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RoutesModule} from '../routes/routes.module';
 import {SignOutComponent} from './sign-out/sign-out.component';
-
+import {AgmCoreModule} from '@agm/core';
 
 
 @NgModule({
-  imports: [CommonModule, ServiceModule, FormsModule, RoutesModule],
+  imports: [
+    CommonModule,
+    ServiceModule,
+    FormsModule,
+    RoutesModule,
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDtJW4fJmReCq-Ua-XsBJEJM1Ar_Cjni9w',
+      libraries: ['places']
+    })],
   declarations: [
     GuiComponent,
     AdvertisementComponent,

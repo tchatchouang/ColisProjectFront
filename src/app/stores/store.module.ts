@@ -9,6 +9,9 @@ import {SignOutActions} from './actions/signOut/sign-out-actions';
 import {createEpicMiddleware} from 'redux-observable';
 import {LoginEpics} from './epics/login/login-epics';
 import {SignOutEpics} from './epics/signOut/sign-out-epics';
+import {SignUpActions} from './actions/singUp/sign-up-actions';
+import {ProposerTrajetActions} from './actions/proposerTrajet/proposer-trajet-actions';
+import {ProposerTrajetEpics} from './epics/proposerTrajet/proposer-trajet-epics';
 
 @NgModule({
   imports: [
@@ -19,19 +22,23 @@ import {SignOutEpics} from './epics/signOut/sign-out-epics';
   providers: [
     LoginActions,
     SignOutActions,
+    SignUpActions,
+    ProposerTrajetActions,
     LoginEpics,
-    SignOutEpics
+    SignOutEpics,
+    ProposerTrajetEpics,
   ],
 })
 export class StoreModule {
-  constructor(public ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension, private loginEpic: LoginEpics, private  signOutEpics: SignOutEpics) {
+  constructor(public ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension, private loginEpic: LoginEpics,
+              private  signOutEpics: SignOutEpics, private proposerTrajetEpic: ProposerTrajetEpics) {
 
     const storeEnhancers = devTools.isEnabled() ?
       [devTools.enhancer()] :
       [];
     const middlewares = [
       createLogger(),
-      //createEpicMiddleware(this.signOutEpics.fetchSignjOut),
+      createEpicMiddleware(this.proposerTrajetEpic.proposerTrajaetEpic),
 
     ];
 

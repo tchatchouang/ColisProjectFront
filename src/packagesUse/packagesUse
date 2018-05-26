@@ -21,3 +21,10 @@ rxjs
     Pour l'utilisation des fonction comme  Filter, Map, etc
     npm install rxjs --save
 
+test unitaire Angukar
+      npm install karma karma-jasmine karma-chrome-launcher karma-jasmine-html-reporter karma-coverage-istanbul-reporter
+      ng test --code-coverage
+      https://www.codewithjason.com/add-test-coverage-report-angular-cli-project/
+GoogleMap
+  npm install @agm/core --save
+  npm install --save @types/googlemaps
