@@ -29,6 +29,7 @@ import {ProposerTrajetServices} from './proposerTrajet/proposer-trajet-services'
     SignUpServices,
     TrajetServices,
     ProposerTrajetServices,
+    TrajetServices,
   ],
 })
 export class ServiceModule {

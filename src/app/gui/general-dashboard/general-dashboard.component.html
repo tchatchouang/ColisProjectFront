@@ -5,7 +5,7 @@
       <div class="col-sm-3">
         <div class="circle circle1">
           <a href="#section_1">
-            <h2>1<p>Trajets publiés</p></h2>
+            <h2>{{ (trajetResults$ | async)?.length }}<p>Trajets publiés</p></h2>
           </a>
         </div>
       </div>

@@ -12,6 +12,7 @@ import {SignOutEpics} from './epics/signOut/sign-out-epics';
 import {SignUpActions} from './actions/singUp/sign-up-actions';
 import {ProposerTrajetActions} from './actions/proposerTrajet/proposer-trajet-actions';
 import {ProposerTrajetEpics} from './epics/proposerTrajet/proposer-trajet-epics';
+import {TrajetPublierActions} from './actions/trajetPublier/trajet-publier-actions';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import {ProposerTrajetEpics} from './epics/proposerTrajet/proposer-trajet-epics'
     SignOutActions,
     SignUpActions,
     ProposerTrajetActions,
+    TrajetPublierActions,
     LoginEpics,
     SignOutEpics,
     ProposerTrajetEpics,

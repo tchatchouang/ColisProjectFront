@@ -1,3 +1,29 @@
-<p>
-  trajet-publier works!
-</p>
+<div class="container-fluid">
+
+  <table class="table table-striped">
+    <thead>
+    <tr class="bg-primary">
+      <!-- <th>#</th>-->
+      <th>Date plucation</th>
+      <th>Pays depart</th>
+      <th>Date depart</th>
+      <th>Pays d'arriver</th>
+      <th>date d'arriver</th>
+      <th>Poids</th>
+      <th>Nombre de viste</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor=" let listt of (trajetResults$ | async)">
+      <!--<th scope="row">1</th>-->
+      <td>{{listt.proposerTrajet[0].datePropositionTrajet}}</td>
+      <td>{{listt.lieuDepart}}</td>
+      <td>{{listt.dateDepart | date:'EEEE dd-MMM-yyyy HH:mm'}}</td>
+      <td>{{listt.lieuArriver}}</td>
+      <td>{{listt.dateArriver | date:'EEEE dd-MMM-yyyy HH:mm'}}</td>
+      <td>{{listt.proposerTrajet[0].poidColis}}</td>
+      <td>{{listt.proposerTrajet[0].nombreVisite}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

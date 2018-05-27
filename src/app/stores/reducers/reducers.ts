@@ -4,6 +4,7 @@ import {composeReducers, defaultFormReducer} from '@angular-redux/form';
 import {ISignOut, SignOutReducer} from './signOut/sign-out-reducers';
 import {ISignUp, SignUpReducer} from './signUp/sign-up-reducer';
 import {IProposerTrajet, ProposerTrajetReducer} from './publierTrajet/publier-trajet-reducer';
+import {ITrajetPublier, TrajetPublierReducer} from './trajetPublier/trajet-publier-reducers';
 
 
 export interface IAppState {
@@ -11,6 +12,7 @@ export interface IAppState {
   signOut?: ISignOut;
   signUp?: ISignUp;
   proposerTrajaet?: IProposerTrajet;
+  trajetPublier?: ITrajetPublier;
 }
 
 export const rootReducer = composeReducers(
@@ -20,5 +22,6 @@ export const rootReducer = composeReducers(
     signOut: SignOutReducer,
     signUp: SignUpReducer,
     proposerTrajaet: ProposerTrajetReducer,
+    trajetPublier: TrajetPublierReducer,
   }));
 

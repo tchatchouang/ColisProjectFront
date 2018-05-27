@@ -2,6 +2,7 @@ import {LoginActionsTypes} from './login/login.actions';
 import {SignOutActionsTypes} from './signOut/sign-out-actions';
 import {SignUpActionsTypes} from './singUp/sign-up-actions';
 import {ProposerTrajetActionsTypes, TrajetActionsTypes} from './proposerTrajet/proposer-trajet-actions';
+import {TrajetPublierActionsTypes} from './trajetPublier/trajet-publier-actions';
 
 export const actionsTypes = {
   login: LoginActionsTypes,
@@ -9,5 +10,6 @@ export const actionsTypes = {
   signUp: SignUpActionsTypes,
   trajet: TrajetActionsTypes,
   proposerTrajet: ProposerTrajetActionsTypes,
+  trajetPublier: TrajetPublierActionsTypes,
 };
 
