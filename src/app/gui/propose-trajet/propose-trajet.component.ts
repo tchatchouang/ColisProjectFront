@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {MapsAPILoader} from '@agm/core';
 import {NgRedux} from '@angular-redux/store';
 import {IAppState} from '../../stores/reducers/reducers';
+import {} from '@types/googlemaps';
 
 @Component({
   selector: 'app-propose-trajet',
