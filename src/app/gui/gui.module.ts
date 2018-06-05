@@ -26,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RoutesModule} from '../routes/routes.module';
 import {SignOutComponent} from './sign-out/sign-out.component';
 import {AgmCoreModule} from '@agm/core';
+import {DayAgoPipe} from '../pipes/day-ago.pipe';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {AgmCoreModule} from '@agm/core';
     TrajetDetailsComponent,
     TrajetPublierComponent,
     LoginComponent,
-    SignOutComponent],
+    SignOutComponent,
+    DayAgoPipe],
   exports: [GuiComponent],
 })
 export class GuiModule {

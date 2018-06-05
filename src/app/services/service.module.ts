@@ -10,6 +10,7 @@ import {SignOutService} from './singOut/sign-out-service';
 import {SignUpServices} from './signUp/sign-up-services';
 import {TrajetServices} from './Trajets/trajets-services';
 import {ProposerTrajetServices} from './proposerTrajet/proposer-trajet-services';
+import {MessagerietsServices} from './messagerie/messageriets-services';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {ProposerTrajetServices} from './proposerTrajet/proposer-trajet-services'
     TrajetServices,
     ProposerTrajetServices,
     TrajetServices,
+    MessagerietsServices,
   ],
 })
 export class ServiceModule {

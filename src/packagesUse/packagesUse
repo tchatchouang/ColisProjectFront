@@ -28,3 +28,5 @@ test unitaire Angukar
 GoogleMap
   npm install @agm/core --save
   npm install --save @types/googlemaps
+Pour gere les date genre day Ago
+  npm install date-fns @types/date-fns -- save

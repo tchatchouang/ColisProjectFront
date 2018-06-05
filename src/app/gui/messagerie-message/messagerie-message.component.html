@@ -1,3 +1,34 @@
-<p>
-  messagerie-message works!
-</p>
+<div id="frame">
+  <div class="content"> <!--*ngFor=" let listMessage of (messages$ | async)" -->
+    <!--<div class="contact-profile">
+      <img src="{{listMessage.conversations.personnes2.photoPersonne}}" alt="" />
+      <p>{{listMessage.conversations.personnes2.prenomPersonn}} {{listMessage.conversations.personnes2.nomPersonne}}</p>
+    </div>-->
+    <div class="messages">
+      <ul *ngFor=" let listMessage of (messages$ | async)">
+        <li class="sent"
+            *ngIf="listMessage.personnes.idPersonne !=(loginResults$ | async).idPersonne">
+          <img src="{{listMessage.personnes.photoPersonne}}" alt=""/>
+          <p>{{listMessage.cotenueMessage}} <br><i>publiée il y'a {{ listMessage.dateMessage| dayAgo }}</i></p>
+        </li>
+
+        <li
+          class="replies"
+          *ngIf="listMessage.personnes.idPersonne ==(loginResults$ | async).idPersonne ">
+          <img src="{{listMessage.personnes.photoPersonne}}" alt=""/>
+          <p>{{listMessage.cotenueMessage}} <br><i>publiée il y'a {{ listMessage.dateMessage| dayAgo}}</i></p>
+        </li>
+      </ul>
+    </div>
+    <div class="message-input">
+      <div class="wrap">
+        <input
+          type="text"
+          [(ngModel)]="replyMessage"
+          placeholder="Write your message..."/>
+        <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+        <button class="submit" (click)="getMessageReply()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
