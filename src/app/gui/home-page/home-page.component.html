@@ -1,29 +1,148 @@
-<div id="home" class="container-fluid page-view">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="title">Let me take your Bag</h1>
-      <h3 class="title"> I have a flight</h3>
+<body>
+<header id="top" class="main-header">
+  <div class="top">
+    <i class="fa fa-map-marker"></i>
+    <p class="title">Your position - xxxxx</p>
+  </div>
+  <h1>LET ME TAKE YOUR BAG
+    <div class="north">I have a flight</div>
+  </h1>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label class="control-label">Ville de départ</label>
+      <input type="text" placeholder="Search for Location" autocorrect="off"
+             autocapitalize="off" spellcheck="off"
+             name="lieuDepart" class="form-control" #lieuDepart
+             [(ngModel)]="lieuDep"
+             (keyup)="dosearch()"
+             required>
+    </div>
+
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label class="control-label">Ville d'arrivée</label>
+      <input type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off"
+             spellcheck="off" class="form-control" #lieuArriver
+             [(ngModel)]="lieuArr"
+             (keyup)="dosearch()"
+             required>
+    </div>
+  </div>
+</header>
+<!-- .primary -->
+<div class="row well displayProfiles">
+  <div class="col-xs-4" *ngFor="let listcon of (trajetResults$ | async)?.content; let i = index;">
+    <div class="card">
+      <div class="avatar">
+        <img src="{{ (personeResults$ | async)[i]?.photoPersonne }}" alt=""/>
+      </div>
+      <div class="content">
+        <p class="personName">{{ (personeResults$ | async)[i]?.prenomPersonn }} {{ (personeResults$ |
+          async)[i]?.nomPersonne }}</p>
+        <span class="text-muted">
+                 <span class="glyphicon glyphicon-map-marker alert-success text-muted c-info"
+                       data-toggle="tooltip"></span>
+                {{listcon.lieuDepart}}, {{listcon.paysDepart}}
+                <span class="glyphicon glyphicon-time alert-success" data-toggle="tooltip"></span>
+                <span> <span class="text-muted"> {{listcon.dateDepart | date:' dd-MMM-yyyy HH:mm'}}</span></span>
+              </span><br/>
+        <span class="text-muted">
+                <span class="glyphicon glyphicon-map-marker alert-danger text-muted c-info"
+                      data-toggle="tooltip"></span>
+                {{listcon.lieuArriver}}, {{listcon.paysArrive}}
+                <span class="glyphicon glyphicon-time alert-danger" data-toggle="tooltip"></span>
+                 <span> <span class="text-muted">{{listcon.dateArriver | date:' dd-MMM-yyyy HH:mm'}}</span></span>
+              </span><br/>
+        <p class="profInfo">
+        </p>
+      </div>
     </div>
   </div>
 </div>
 
+<nav aria-label="...">
+  <ul class="pagination">
+    <li [ngClass]="{active:i == currentPage}" *ngFor="let p of (totalPages$ | async); let i = index">
+      <a class="page-link">
+        <a (click)="goToPage(i)">{{i+1}}</a>
+      </a>
+    </li>
+  </ul>
+</nav>
 
-<div id="about" class="container bg-grey page-view">
-  <h2 class="page-title text-center red">About</h2>
-  <div class="row">
-    <div class="col-sm-4">
-      <img class="img-responsive center-block" src="assets/img/willi2.jpg" width="300px" alt="Bob Brady AKA DigiBrady"/>
-    </div>
-    <div class="col-sm-8">
-      <p class="large-font">
-        My name is Willi Tchatchouang
-      </p>
-      <p class="large-font">
-        I have over 0
-      </p>
-      <p class="large-font">
-        I’m a L.... expert,
+
+<div class="border less-marging"></div>
+
+<!--
+<div class="container-fluid">
+  <ul class="nav nav-pills">
+    <li [ngClass]="{active:i == currentPage}" *ngFor="let p of (trajetResults$ | async)?.totalPages; let i = index">
+      <a (click)="goToPage(i)">{{i+1}}</a>
+    </li>
+  </ul>
+</div>
+-->
+<!-- .primary -->
+<div class="primary container">
+
+  <div class="bg">
+    <div class="howay" id="howay">
+      <h2>The Way!</h2>
+      <p>
+        okok <a href="turism">ok </a> and <a href="#culture"> ok</a>.
       </p>
     </div>
   </div>
+
+  <a class="button" href="#turism">Discover Gateshead</a>
 </div>
+<!-- End .primary -->
+
+
+<!-- .secondary  -->
+<div class="secondary container group">
+  <div class="turism" id="turism">
+    <img
+      src="https://completelyretail.co.uk/media/property/47104/CR_SC_47104_G123_Trinity_Square_Gateshead_picture_1_p7_750x500.jpg"
+      alt="The Sage Gateshead">
+    <h3>The 'Toon'</h3>
+    <p>
+      Gateshead is full of wonderful places to visit and well known for its iconic architecture. Here are our top three
+      resorts:
+    </p>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/The_Sage_Gateshead">The Sage</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Angel_of_the_North">Angel of the North</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Baltic_Centre_for_Contemporary_Art">Baltic Centre for Contemporary
+        Art</a></li>
+    </ul>
+  </div>
+
+  <div class="culture" id="culture">
+    <img src="https://i2.chroniclelive.co.uk/incoming/article4046091.ece/alternates/s615/CMP_030613colmans-4.jpg"
+         alt="">
+    <h3>Wey aye, man!</h3>
+    <p>Residents of Gateshead, like the rest of Tyneside, are referred to as Geordies. Here are a few iconic sayings:
+    </p>
+    <ul>
+      <li>gan yem <span>(I'm going home)</span></li>
+      <li>Wey aye, man! <span>(Yes!)</span></li>
+      <li>Howay man! <span>(Hurry up!)</span></li>
+      <li><a href="#https://www.chroniclelive.co.uk/news/north-east-news/geordie-sayings-top-56-things-6466922">Discover
+        More</a></li>
+    </ul>
+  </div>
+
+</div>
+<!-- End .secondary  -->
+
+<div class="border"></div>
+
+<!-- .main-footer  -->
+<footer class="main-footer">
+  <p>All rights reserved to the city of <a href="https://en.wikipedia.org/wiki/Gateshead">Gateshead</a>.</p>
+  <a href="#top">Back to top »</a>
+</footer>
+<!-- End .main-footer  -->
+</body>

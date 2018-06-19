@@ -22,4 +22,19 @@ export class TrajetServices {
     });
   }
 
+  dosearch(lieuDepart: string, lieuArriver: string, page: number, size: number): Observable<Trajet[]> { //dateDepart: Date, dateArriver: Date
+    //.set('dateDepart', dateDepart.toString())
+    //.set('dateArriver', dateArriver.toString())
+
+    /*return this.http.get<Trajet[]>('http://localhost:8080/dosearche?lieuArriver=' + lieuArriver)
+      .map(response => response);*/
+    return this.http.get<Trajet[]>('http://localhost:8080/dosearche', {
+      params: new HttpParams()
+        .set('lieuDepart', lieuDepart)
+        .set('lieuArriver', lieuArriver)
+        .set('page', page.toString())
+        .set('size', size.toString()),
+    });
+  }
+
 }

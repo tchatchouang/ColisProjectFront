@@ -4,6 +4,7 @@ import {SignUpActionsTypes} from './singUp/sign-up-actions';
 import {ProposerTrajetActionsTypes, TrajetActionsTypes} from './proposerTrajet/proposer-trajet-actions';
 import {TrajetPublierActionsTypes} from './trajetPublier/trajet-publier-actions';
 import {MessagerieActionsTypes} from './messagerie/messagerie.actions';
+import {HomeActionsTypes} from './home/home-actions';
 
 export const actionsTypes = {
   login: LoginActionsTypes,
@@ -13,5 +14,6 @@ export const actionsTypes = {
   proposerTrajet: ProposerTrajetActionsTypes,
   trajetPublier: TrajetPublierActionsTypes,
   messagerie: MessagerieActionsTypes,
+  home: HomeActionsTypes,
 };
 

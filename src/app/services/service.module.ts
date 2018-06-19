@@ -11,6 +11,7 @@ import {SignUpServices} from './signUp/sign-up-services';
 import {TrajetServices} from './Trajets/trajets-services';
 import {ProposerTrajetServices} from './proposerTrajet/proposer-trajet-services';
 import {MessagerietsServices} from './messagerie/messageriets-services';
+import {PersonnesService} from './personne/personnes.service';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {MessagerietsServices} from './messagerie/messageriets-services';
     ProposerTrajetServices,
     TrajetServices,
     MessagerietsServices,
+    PersonnesService
   ],
 })
 export class ServiceModule {

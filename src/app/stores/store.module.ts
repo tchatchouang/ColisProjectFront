@@ -6,7 +6,7 @@ import {NgReduxFormModule} from '@angular-redux/form';
 import {IAppState, rootReducer} from './reducers/reducers';
 import {BrowserModule} from '@angular/platform-browser';
 import {SignOutActions} from './actions/signOut/sign-out-actions';
-import {createEpicMiddleware} from 'redux-observable';
+import {combineEpics, createEpicMiddleware} from 'redux-observable';
 import {LoginEpics} from './epics/login/login-epics';
 import {SignOutEpics} from './epics/signOut/sign-out-epics';
 import {SignUpActions} from './actions/singUp/sign-up-actions';
@@ -14,6 +14,8 @@ import {ProposerTrajetActions} from './actions/proposerTrajet/proposer-trajet-ac
 import {ProposerTrajetEpics} from './epics/proposerTrajet/proposer-trajet-epics';
 import {TrajetPublierActions} from './actions/trajetPublier/trajet-publier-actions';
 import {MessagerieActions} from './actions/messagerie/messagerie.actions';
+import {HomeActions} from './actions/home/home-actions';
+import {HomeEpics} from './epics/home/home-epics';
 
 @NgModule({
   imports: [
@@ -28,21 +30,27 @@ import {MessagerieActions} from './actions/messagerie/messagerie.actions';
     ProposerTrajetActions,
     TrajetPublierActions,
     MessagerieActions,
+    HomeActions,
     LoginEpics,
     SignOutEpics,
     ProposerTrajetEpics,
+    HomeEpics,
   ],
 })
 export class StoreModule {
   constructor(public ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension, private loginEpic: LoginEpics,
-              private  signOutEpics: SignOutEpics, private proposerTrajetEpic: ProposerTrajetEpics) {
+              private  signOutEpics: SignOutEpics, private proposerTrajetEpic: ProposerTrajetEpics, private homeEpics: HomeEpics) {
+    const rootEpic = combineEpics(
+      this.proposerTrajetEpic.proposerTrajaetEpic,
+      this.homeEpics.fetchPersonEpic,
+    );
 
     const storeEnhancers = devTools.isEnabled() ?
       [devTools.enhancer()] :
       [];
     const middlewares = [
       createLogger(),
-      createEpicMiddleware(this.proposerTrajetEpic.proposerTrajaetEpic),
+      createEpicMiddleware(rootEpic),
 
     ];
 
